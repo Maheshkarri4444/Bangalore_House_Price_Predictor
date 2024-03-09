@@ -60,7 +60,7 @@ def predict_price(location,sqft,bath,bhk):
 location=st.selectbox(
 "Enter the location",data_columns[3:],index=None,placeholder="Choose the location"
     )
-area=st.number_input("Enter the Area Size" , value=None , placeholder="Area",step=1 )
+area=st.number_input("Enter the Area Size" , value=None , placeholder="Area(in Sq-ft)",step=1 )
 bathrooms=st.number_input("Enter the no of Bathrooms",value=None,placeholder="Bathrooms",step=1)
 bedrooms=st.number_input("Enter the no of Bedrooms",value=None,placeholder="Bedrooms",step=1)
 
