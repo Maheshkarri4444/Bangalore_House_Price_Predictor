@@ -40,11 +40,6 @@ with open("columns.json", "r") as f:
 data_columns=columns_data['data_columns']
 #print(data_columns)
 
-priority_column = "other"
-if priority_column in data_columns:
-    data_columns.remove(priority_column)
-    data_columns.insert(3, priority_column)
-
 def predict_price(location,sqft,bath,bhk):
     
     loc_index=data_columns.index(location.lower())
@@ -58,9 +53,9 @@ def predict_price(location,sqft,bath,bhk):
     return lr_clf.predict([fet])[0]
 
 location=st.selectbox(
-"Enter the location",data_columns[3:],index=None,placeholder="Choose the location"
+"Enter the location",data_columns[3:],index=None,placeholder="Choose the location (Other if None)"
     )
-area=st.number_input("Enter the Area Size" , value=None , placeholder="Area(in Sq-ft)",step=1 )
+area=st.number_input("Enter the Area Size" , value=None , placeholder="Area (in Sq-ft)",step=1 )
 bathrooms=st.number_input("Enter the no of Bathrooms",value=None,placeholder="Bathrooms",step=1)
 bedrooms=st.number_input("Enter the no of Bedrooms",value=None,placeholder="Bedrooms",step=1)
 
